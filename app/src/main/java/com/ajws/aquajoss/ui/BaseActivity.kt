@@ -1,4 +1,4 @@
-package com.ajws.aquajoss
+package com.ajws.aquajoss.ui
 
 import androidx.appcompat.app.AppCompatActivity
 

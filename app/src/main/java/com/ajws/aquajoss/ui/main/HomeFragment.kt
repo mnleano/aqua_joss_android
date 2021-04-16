@@ -1,4 +1,4 @@
-package com.ajws.aquajoss.main
+package com.ajws.aquajoss.ui.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

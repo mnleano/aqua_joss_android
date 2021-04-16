@@ -1,7 +1,8 @@
-package com.ajws.aquajoss
+package com.ajws.aquajoss.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.ajws.aquajoss.R
 
 class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
