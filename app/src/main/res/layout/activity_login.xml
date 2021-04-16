@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_window"
+    tools:context=".main.MainActivity">
+
+    <TextView
+        android:id="@+id/lblTitle"
+        style="@style/TextView.Title"
+        android:layout_marginTop="@dimen/_64dp"
+        android:text="@string/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPhoneNumber"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="@dimen/_32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/TextInputEditText.Landing"
+            android:drawableStart="@drawable/ic_phone"
+            android:hint="@string/phone_number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        style="@style/TextInputLayout"
+        android:layout_marginTop="@dimen/_8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/TextInputEditText.Landing"
+            android:drawableStart="@drawable/ic_password"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        style="@style/Button"
+        android:layout_marginTop="@dimen/_16dp"
+        android:text="@string/log_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+    <TextView
+        android:id="@+id/lblNewUser"
+        style="@style/TextView.Label"
+        android:layout_marginTop="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_2dp"
+        android:text="@string/new_user"
+        app:layout_constraintEnd_toStartOf="@+id/btnSignUp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <TextView
+        android:id="@+id/btnSignUp"
+        style="@style/TextView.Button"
+        android:layout_marginStart="@dimen/_2dp"
+        android:text="@string/sign_up"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblNewUser"
+        app:layout_constraintTop_toTopOf="@+id/lblNewUser" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
