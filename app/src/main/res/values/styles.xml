@@ -4,6 +4,7 @@
     <style name="TextView">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/text_color_primary</item>
     </style>
 
@@ -25,6 +26,14 @@
 
     <style name="TextView.2XL" parent="TextView">
         <item name="android:textSize">@dimen/text_size_2xl</item>
+    </style>
+
+    <style name="TextView.Data" parent="TextView.M">
+        <item name="android:textColor">@color/text_color_black</item>
+    </style>
+
+    <style name="TextView.Data.Special" parent="TextView.Data">
+        <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 
     <style name="TextView.Title" parent="TextView.XL">

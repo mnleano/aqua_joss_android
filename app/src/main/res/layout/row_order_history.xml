@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground">
+
+        <TextView
+            android:id="@+id/orderId"
+            style="@style/TextView.Data.Special"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/full_name" />
+
+        <TextView
+            android:id="@+id/orderStatus"
+            style="@style/TextView.Data"
+            android:layout_marginTop="@dimen/_4dp"
+            android:layout_marginBottom="@dimen/_12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/orderId"
+            app:layout_constraintTop_toBottomOf="@+id/orderId"
+            tools:text="CANCELLED" />
+
+        <TextView
+            android:id="@+id/bullet"
+            style="@style/TextView.Data"
+            android:layout_marginStart="@dimen/_4dp"
+            android:text="@string/bullet"
+            app:layout_constraintBottom_toBottomOf="@+id/orderStatus"
+            app:layout_constraintStart_toEndOf="@+id/orderStatus"
+            app:layout_constraintTop_toTopOf="@+id/orderStatus" />
+
+        <TextView
+            style="@style/TextView.Label"
+            android:layout_marginStart="@dimen/_4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/orderStatus"
+            app:layout_constraintStart_toEndOf="@+id/bullet"
+            tools:text="@string/full_name" />
+
+        <ImageView
+            android:id="@+id/arrowRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/TextView.Data"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:textColor="@color/text_color_primary"
+            app:layout_constraintBottom_toBottomOf="@+id/orderStatus"
+            app:layout_constraintEnd_toStartOf="@+id/arrowRight"
+            tools:text="@string/full_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/stroke_weight_thin"
+            android:layout_marginStart="@dimen/_16dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:background="@color/stroke_color"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

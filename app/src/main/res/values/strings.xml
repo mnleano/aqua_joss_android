@@ -22,4 +22,7 @@
 
     <!-- Home -->
     <string name="add_to_cart">Add to cart</string>
+
+    <!-- Order History -->
+    <string name="bullet">\u2022</string>
 </resources>
