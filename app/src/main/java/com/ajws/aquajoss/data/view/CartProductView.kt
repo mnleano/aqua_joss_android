@@ -1,11 +1,9 @@
 package com.ajws.aquajoss.data.view
 
-data class ProductView(
+data class CartProductView(
     val id: Int,
     val name: String,
     val description: String,
     val price: Double,
     val quantity: Int
-) {
-    fun price() = "₱ ${String.format("%.2f", price)}"
-}
+)

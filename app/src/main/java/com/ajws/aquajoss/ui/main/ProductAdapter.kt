@@ -23,9 +23,9 @@ class ProductAdapter(private val products: MutableList<ProductView>) :
         holder.binding.root.setOnClickListener {
 
         }
-        holder.binding.ivAddToCart.setOnClickListener {
-
-        }
+//        holder.binding.ivAddToCart.setOnClickListener {
+//
+//        }
     }
 
     override fun getItemCount(): Int = products.size

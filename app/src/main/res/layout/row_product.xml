@@ -10,62 +10,64 @@
             type="com.ajws.aquajoss.data.view.ProductView" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground">
+        android:layout_margin="@dimen/_12dp"
+        android:elevation="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_8dp">
 
-        <ImageView
-            android:id="@+id/ivProduct"
-            android:layout_width="@dimen/product_height"
-            android:layout_height="@dimen/product_height"
-            android:layout_marginStart="@dimen/_16dp"
-            android:layout_marginTop="@dimen/_8dp"
-            android:layout_marginBottom="@dimen/_8dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_add_shopping"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16dp"
-            android:text="@{data.name}"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            app:layout_constraintStart_toEndOf="@+id/ivProduct"
-            app:layout_constraintTop_toTopOf="@+id/ivProduct"
-            tools:text="@tools:sample/full_names" />
-
-        <TextView
-            android:id="@+id/productPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(data.price)}"
-            android:textColor="@android:color/black"
-            android:textSize="19sp"
-            app:layout_constraintStart_toStartOf="@+id/productName"
-            app:layout_constraintTop_toBottomOf="@+id/productName"
-            tools:text="@tools:sample/full_names" />
-
-        <ImageView
-            android:id="@+id/ivAddToCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/_16dp"
-            android:background="?selectableItemBackground"
-            android:src="@drawable/ic_add_to_cart"
-            app:layout_constraintBottom_toBottomOf="@+id/ivProduct"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/blue" />
-
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/stroke_weight_thin"
-            android:background="@color/stroke_color"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/_8dp">
+
+            <ImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/product_height_big"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_add_shopping"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:text="@{data.name}"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text_size_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivProduct"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8dp"
+                android:text="@{data.price()}"
+                android:textColor="@color/text_color_primary"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintEnd_toEndOf="@+id/productName"
+                app:layout_constraintStart_toStartOf="@+id/productName"
+                app:layout_constraintTop_toBottomOf="@+id/productName"
+                tools:text="@tools:sample/full_names" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button"
+                android:layout_marginStart="@dimen/zero_dp"
+                android:layout_marginTop="@dimen/_8dp"
+                android:layout_marginEnd="@dimen/zero_dp"
+                android:text="@string/add_to_cart"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productPrice" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>
