@@ -13,4 +13,10 @@
     <string name="log_in">Log In</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Main -->
+    <string name="navigation_home">Home</string>
+    <string name="navigation_cart">Cart</string>
+    <string name="navigation_order_history">Order History</string>
+    <string name="navigation_profile">Profile</string>
 </resources>

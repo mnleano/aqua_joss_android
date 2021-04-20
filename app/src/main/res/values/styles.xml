@@ -97,4 +97,28 @@
         <item name="backgroundTint">@drawable/background_button</item>
     </style>
 
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">@color/text_color_primary</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:layout_marginStart">@dimen/_32dp</item>
+        <item name="android:layout_marginEnd">@dimen/_32dp</item>
+        <item name="strokeColor">@color/blue</item>
+    </style>
+
+    <style name="BottomNavigation">
+        <item name="itemIconTint">@drawable/bottom_navigation_icon_tint</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_icon_tint</item>
+        <item name="itemBackground">@drawable/bottom_navigation_background</item>
+    </style>
+
+    <style name="itemTextAppearanceActive" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="itemTextAppearanceInactive" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">13sp</item>
+    </style>
+
 </resources>

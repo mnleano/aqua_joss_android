@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3021542327105559431",
-      "lastPropertyId": "5:3335908503155685292",
+      "lastPropertyId": "6:1847128882105681585",
       "name": "Product",
       "properties": [
         {
@@ -35,12 +35,63 @@
           "name": "quantity",
           "type": 5,
           "flags": 4
+        },
+        {
+          "id": "6:1847128882105681585",
+          "name": "productId",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8323056037591569983",
+      "lastPropertyId": "7:6827473393957463932",
+      "name": "ProductOrder",
+      "properties": [
+        {
+          "id": "1:9113216920378548082",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4240874384454285898",
+          "name": "orderId",
+          "type": 9
+        },
+        {
+          "id": "3:4906237238325514895",
+          "name": "productId",
+          "type": 9
+        },
+        {
+          "id": "4:2889960143848369492",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "5:3268543401249934549",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "6:4280172076738173223",
+          "name": "price",
+          "type": 8,
+          "flags": 4
+        },
+        {
+          "id": "7:6827473393957463932",
+          "name": "quantity",
+          "type": 5,
+          "flags": 4
         }
       ],
       "relations": []
     }
   ],
-  "lastEntityId": "1:3021542327105559431",
+  "lastEntityId": "2:8323056037591569983",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
