@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ajws.aquajoss.R
-import com.ajws.aquajoss.data.entities.Product
 import com.ajws.aquajoss.data.view.ProductView
 import com.ajws.aquajoss.databinding.FragmentHomeBinding
 
