@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
 import com.ajws.aquajoss.R
-import com.ajws.aquajoss.data.entities.Order
-import com.ajws.aquajoss.data.view.ProductView
 import com.ajws.aquajoss.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

@@ -4,11 +4,10 @@ import io.objectbox.annotation.Entity
 import io.objectbox.annotation.Id
 
 @Entity
-data class ProductOrder(
+data class CartProduct(
     @Id var id: Long = 0,
-    var orderId: String,
     var productId: String,
-    var name: String,
+    var productName: String,
     var description: String,
     var price: Double,
     var quantity: Int
