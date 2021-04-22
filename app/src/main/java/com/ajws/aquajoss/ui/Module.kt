@@ -5,6 +5,7 @@ import com.ajws.aquajoss.BuildConfig
 import com.ajws.aquajoss.data.entities.MyObjectBox
 import com.ajws.aquajoss.data.entities.OrderHistory
 import com.ajws.aquajoss.data.entities.CartProduct
+import com.ajws.aquajoss.data.entities.OrderProduct
 import com.ajws.aquajoss.data.local.AccountPrefStore
 import com.ajws.aquajoss.data.local.LocalPreferences
 import com.ajws.aquajoss.data.manager.DatabaseManager
@@ -51,13 +52,15 @@ val modules = module {
 
     // ObjectBox
     single { MyObjectBox.builder().androidContext(get<Context>()).build() }
+    factory(named("cartProductBox")) { get<BoxStore>().boxFor(CartProduct::class.java) as Box<CartProduct> }
     factory(named("orderHistoryBox")) { get<BoxStore>().boxFor(OrderHistory::class.java) as Box<OrderHistory> }
-    factory(named("cartProduct")) { get<BoxStore>().boxFor(CartProduct::class.java) as Box<CartProduct> }
+    factory(named("orderProductBox")) { get<BoxStore>().boxFor(OrderProduct::class.java) as Box<OrderProduct> }
 
     single {
         DatabaseManager(
+            get(named("cartProductBox")),
             get(named("orderHistoryBox")),
-            get(named("cartProduct"))
+            get(named("orderProductBox")),
         )
     }
 }
