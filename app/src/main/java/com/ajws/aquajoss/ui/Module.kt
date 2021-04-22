@@ -2,25 +2,32 @@ package com.ajws.aquajoss.ui
 
 import android.content.Context
 import com.ajws.aquajoss.BuildConfig
+import com.ajws.aquajoss.data.entities.CartProduct
 import com.ajws.aquajoss.data.entities.MyObjectBox
 import com.ajws.aquajoss.data.entities.OrderHistory
-import com.ajws.aquajoss.data.entities.CartProduct
 import com.ajws.aquajoss.data.entities.OrderProduct
 import com.ajws.aquajoss.data.local.AccountPrefStore
 import com.ajws.aquajoss.data.local.LocalPreferences
 import com.ajws.aquajoss.data.manager.DatabaseManager
+import com.ajws.aquajoss.data.remote.BearerInterceptor
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.soloader.SoLoader
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.tencent.mmkv.MMKV
 import io.objectbox.Box
 import io.objectbox.BoxStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 fun initMmvk(context: Context): MMKV {
     MMKV.initialize(context)
@@ -39,11 +46,44 @@ fun initMmvk(context: Context): MMKV {
     return mmkv
 }
 
+private fun initOkHttpClient(bearerInterceptor: BearerInterceptor): OkHttpClient {
+    val okHttpClientBuilder = OkHttpClient.Builder()
+        .addInterceptor(bearerInterceptor)
+        .addInterceptor(
+            HttpLoggingInterceptor().setLevel(
+                if (BuildConfig.DEBUG)
+                    HttpLoggingInterceptor.Level.BODY
+                else HttpLoggingInterceptor.Level.NONE
+            )
+        )
+        .connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
+        .retryOnConnectionFailure(true)
+    return okHttpClientBuilder.build()
+}
+
+fun initGson(): Gson = GsonBuilder().setLenient().create()
+
 fun initCoroutineScope(): CoroutineScope =
     CoroutineScope(Dispatchers.IO + SupervisorJob())
 
 
 val modules = module {
+
+    // Web service
+    single { BearerInterceptor(get()) }
+    single { initOkHttpClient(get()) }
+    single {
+        Retrofit
+            .Builder()
+            .client(get())
+            .addConverterFactory(GsonConverterFactory.create(initGson()))
+            .baseUrl(BuildConfig.BASE_URL)
+            .build()
+    }
+
+    single { initCoroutineScope() }
+
     //SharedPreferences
     single { Gson() }
     single { initMmvk(get()) }
@@ -64,6 +104,8 @@ val modules = module {
         )
     }
 
-    factory { CoroutineScope(Dispatchers.IO + get<SupervisorJob>()) }
+    // Repository
+
+
 }
 
