@@ -6,8 +6,8 @@ import java.util.*
 data class OrderHistory(
     @Id var id: Long = 0,
     var orderId: String,
+    var orderAmount: Double,
     var orderStatus: Int,
     var orderDate: Date,
-    var lastModifiedDate: Date,
-    var totalAmount: Double
+    var orderLastUpdate: Date,
 )

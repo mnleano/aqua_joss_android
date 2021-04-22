@@ -21,7 +21,7 @@
             style="@style/BottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground"
+            android:background="@color/white"
             app:itemTextAppearanceActive="@style/itemTextAppearanceActive"
             app:itemTextAppearanceInactive="@style/itemTextAppearanceInactive"
             app:labelVisibilityMode="labeled"

@@ -25,4 +25,11 @@
 
     <!-- Order History -->
     <string name="bullet">\u2022</string>
+
+    <!-- Order Status  -->
+    <string name="order_status_processing">Processing</string>
+    <string name="order_status_canceled">Canceled</string>
+    <string name="order_status_out_for_delivery">Out For Delivery</string>
+    <string name="order_status_on_its_way">On Its Way</string>
+    <string name="order_status_delivered">Delivered</string>
 </resources>

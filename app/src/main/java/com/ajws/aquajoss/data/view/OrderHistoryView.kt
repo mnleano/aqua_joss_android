@@ -5,8 +5,8 @@ import java.util.*
 
 data class OrderHistoryView(
     val orderId: String,
+    val orderAmount: Double,
     val orderStatus: OrderStatus,
     val orderDate: Date,
-    val lastModifiedDate: Date,
-    val totalAmount: Double
+    val orderLastUpdate: Date
 )

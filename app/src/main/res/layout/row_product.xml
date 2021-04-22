@@ -10,13 +10,13 @@
             type="com.ajws.aquajoss.data.view.ProductView" />
     </data>
 
-
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_12dp"
-        android:elevation="@dimen/_8dp"
-        app:cardCornerRadius="@dimen/_8dp">
+        android:layout_margin="@dimen/_8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_8dp"
+        app:cardElevation="@dimen/_4dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -30,7 +30,8 @@
                 android:layout_height="@dimen/product_height_big"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_add_shopping"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/blue" />
 
             <TextView
                 android:id="@+id/productName"
@@ -64,7 +65,7 @@
                 android:layout_marginTop="@dimen/_8dp"
                 android:layout_marginEnd="@dimen/zero_dp"
                 android:text="@string/add_to_cart"
-                android:textSize="10sp"
+                android:textSize="@dimen/text_size_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productPrice" />

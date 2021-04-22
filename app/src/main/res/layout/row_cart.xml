@@ -33,7 +33,7 @@
             android:layout_width="154dp"
             android:layout_height="33dp"
             android:layout_marginStart="16dp"
-            android:text="@{data.name}"
+            android:text="@{data.productName}"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@+id/ivProduct"

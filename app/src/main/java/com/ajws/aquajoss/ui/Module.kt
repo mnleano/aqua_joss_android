@@ -63,5 +63,7 @@ val modules = module {
             get(named("orderProductBox")),
         )
     }
+
+    factory { CoroutineScope(Dispatchers.IO + get<SupervisorJob>()) }
 }
 

@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.ajws.aquajoss.R
 import com.ajws.aquajoss.databinding.ActivityMainBinding
+import com.ajws.aquajoss.ui.orderHistory.OrderHistoryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

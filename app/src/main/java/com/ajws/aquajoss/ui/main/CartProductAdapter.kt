@@ -16,7 +16,7 @@ class CartProductAdapter( private val products: MutableList<CartProductView>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
-        holder.binding.data = product
+//        holder.binding.data = product
         holder.binding.root.setOnClickListener {
 
         }

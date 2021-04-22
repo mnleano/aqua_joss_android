@@ -32,8 +32,26 @@
         <item name="android:textColor">@color/text_color_black</item>
     </style>
 
+    <style name="TextView.Data.Bold" parent="TextView.Data">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextView.Data.Special" parent="TextView.Data">
         <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextView.Data.Bold.Special" parent="TextView.Data.Bold">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="TextView.Data.MainTitle" parent="TextView.2XL">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/background_underline</item>
+        <item name="android:elevation">@dimen/_4dp</item>
+        <item name="android:padding">@dimen/_16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_color_black</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextView.Title" parent="TextView.XL">
