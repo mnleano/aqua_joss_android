@@ -3,7 +3,7 @@ package com.ajws.aquajoss.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
+data class UserDetails(
     @SerializedName("created_at")
     val createdAt: String,
     @SerializedName("email")

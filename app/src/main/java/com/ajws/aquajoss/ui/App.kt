@@ -24,5 +24,9 @@ class App : Application() {
             val started = AndroidObjectBrowser(boxStore).start(this)
             Lg.i("ObjectBrowser", "Started: $started")
         }
+
+        val fileLogger = Lg.FileLogCollector("Logs", BuildConfig.APPLICATION_ID, 3)
+        Lg.addLogger(fileLogger)
+        Lg.addDebugLogger()
     }
 }

@@ -16,14 +16,14 @@
         android:background="@color/background_window"
         tools:context=".ui.main.MainActivity">
 
-        <TextView
-            android:id="@+id/lblTitle"
-            style="@style/TextView.Title"
-            android:layout_marginTop="@dimen/_64dp"
-            android:text="@string/login"
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_with_progress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loading="@{vm.loading}"
+            app:title="@{@string/login}" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPhoneNumber"
@@ -31,7 +31,7 @@
             android:layout_marginTop="@dimen/_32dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblTitle">
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TextInputEditText.Landing"
@@ -85,6 +85,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lblNewUser"
             app:layout_constraintTop_toTopOf="@+id/lblNewUser" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

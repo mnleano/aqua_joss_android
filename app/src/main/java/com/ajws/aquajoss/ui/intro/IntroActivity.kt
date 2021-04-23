@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.ajws.aquajoss.R
 import com.ajws.aquajoss.databinding.ActivityIntroBinding
 import com.ajws.aquajoss.ui.login.LoginActivity
+import com.ajws.aquajoss.ui.signup.SignUpActivity
 
 class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

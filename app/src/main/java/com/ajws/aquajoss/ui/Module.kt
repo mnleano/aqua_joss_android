@@ -2,18 +2,16 @@ package com.ajws.aquajoss.ui
 
 import android.content.Context
 import com.ajws.aquajoss.BuildConfig
-import com.ajws.aquajoss.data.entities.CartProduct
-import com.ajws.aquajoss.data.entities.MyObjectBox
-import com.ajws.aquajoss.data.entities.OrderHistory
-import com.ajws.aquajoss.data.entities.OrderProduct
+import com.ajws.aquajoss.data.entities.*
 import com.ajws.aquajoss.data.local.AccountPrefStore
 import com.ajws.aquajoss.data.local.LocalPreferences
 import com.ajws.aquajoss.data.manager.DatabaseManager
 import com.ajws.aquajoss.data.remote.AuthenticationService
 import com.ajws.aquajoss.data.remote.BearerInterceptor
-import com.ajws.aquajoss.data.repository.LoginRepository
+import com.ajws.aquajoss.data.repository.AuthenticationRepository
 import com.ajws.aquajoss.data.viewModels.BaseViewModel
 import com.ajws.aquajoss.data.viewModels.LoginViewModel
+import com.ajws.aquajoss.data.viewModels.SignUpViewModel
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.soloader.SoLoader
@@ -100,24 +98,27 @@ val modules = module {
     factory(named("cartProductBox")) { get<BoxStore>().boxFor(CartProduct::class.java) as Box<CartProduct> }
     factory(named("orderHistoryBox")) { get<BoxStore>().boxFor(OrderHistory::class.java) as Box<OrderHistory> }
     factory(named("orderProductBox")) { get<BoxStore>().boxFor(OrderProduct::class.java) as Box<OrderProduct> }
+    factory(named("userBox")) { get<BoxStore>().boxFor(User::class.java) as Box<User> }
 
     single {
         DatabaseManager(
             get(named("cartProductBox")),
             get(named("orderHistoryBox")),
             get(named("orderProductBox")),
+            get(named("userBox")),
         )
     }
 
     // Services
-    single { get<Retrofit>().create(AuthenticationService::class.java) as AuthenticationService}
+    single { get<Retrofit>().create(AuthenticationService::class.java) as AuthenticationService }
 
     // Repository
-    single { LoginRepository(get()) }
+    single { AuthenticationRepository(get(), get(), get()) }
 
     // ViewModel
     viewModel { BaseViewModel() }
     viewModel { LoginViewModel(get()) }
+    viewModel { SignUpViewModel(get()) }
 
 }
 

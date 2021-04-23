@@ -7,5 +7,5 @@ data class UserDetailsResponseDto(
     @SerializedName("jwt")
     val jwt: String,
     @SerializedName("user")
-    val user: User
+    val user: UserDetails
 )
