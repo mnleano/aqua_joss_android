@@ -1,4 +1,4 @@
-package com.ajws.aquajoss.data.view
+package com.ajws.aquajoss.data.views
 
 data class ProductView(
     val id: Int,

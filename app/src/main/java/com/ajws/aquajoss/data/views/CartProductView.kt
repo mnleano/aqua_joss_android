@@ -1,4 +1,4 @@
-package com.ajws.aquajoss.data.view
+package com.ajws.aquajoss.data.views
 
 data class CartProductView(
     var productId: String,

@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ajws.aquajoss.data.view.ProductView
+import com.ajws.aquajoss.data.views.ProductView
 import com.ajws.aquajoss.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {

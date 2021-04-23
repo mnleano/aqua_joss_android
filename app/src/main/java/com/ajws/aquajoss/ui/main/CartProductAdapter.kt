@@ -3,7 +3,7 @@ package com.ajws.aquajoss.ui.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ajws.aquajoss.data.view.CartProductView
+import com.ajws.aquajoss.data.views.CartProductView
 import com.ajws.aquajoss.databinding.RowCartBinding
 
 class CartProductAdapter( private val products: MutableList<CartProductView>) :

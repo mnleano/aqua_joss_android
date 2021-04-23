@@ -7,7 +7,7 @@
 
         <variable
             name="data"
-            type="com.ajws.aquajoss.data.view.CartProductView" />
+            type="com.ajws.aquajoss.data.views.CartProductView" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

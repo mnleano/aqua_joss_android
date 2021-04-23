@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ajws.aquajoss.data.viewModels.LoginViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -29,7 +36,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/TextInputEditText.Landing"
                 android:drawableStart="@drawable/ic_phone"
-                android:hint="@string/phone_number" />
+                android:hint="@string/phone_number"
+                android:text="@={vm.username}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -44,13 +52,15 @@
                 style="@style/TextInputEditText.Landing"
                 android:drawableStart="@drawable/ic_password"
                 android:hint="@string/password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="@={vm.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             style="@style/Button"
             android:layout_marginTop="@dimen/_16dp"
+            android:onClick="@{() -> vm.login()}"
             android:text="@string/log_in"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

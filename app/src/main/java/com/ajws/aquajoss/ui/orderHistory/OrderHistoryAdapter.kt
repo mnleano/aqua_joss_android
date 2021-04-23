@@ -3,7 +3,7 @@ package com.ajws.aquajoss.ui.orderHistory
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ajws.aquajoss.data.view.OrderHistoryView
+import com.ajws.aquajoss.data.views.OrderHistoryView
 import com.ajws.aquajoss.databinding.RowOrderHistoryBinding
 
 class OrderHistoryAdapter(private val orderHistories: MutableList<OrderHistoryView>) :

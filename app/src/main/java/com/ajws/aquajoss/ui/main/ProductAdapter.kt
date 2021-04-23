@@ -1,12 +1,9 @@
 package com.ajws.aquajoss.ui.main
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ajws.aquajoss.R
-import com.ajws.aquajoss.data.view.ProductView
+import com.ajws.aquajoss.data.views.ProductView
 import com.ajws.aquajoss.databinding.RowProductBinding
 
 class ProductAdapter(private val products: MutableList<ProductView>) :

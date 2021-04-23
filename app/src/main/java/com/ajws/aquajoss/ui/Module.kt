@@ -9,7 +9,11 @@ import com.ajws.aquajoss.data.entities.OrderProduct
 import com.ajws.aquajoss.data.local.AccountPrefStore
 import com.ajws.aquajoss.data.local.LocalPreferences
 import com.ajws.aquajoss.data.manager.DatabaseManager
+import com.ajws.aquajoss.data.remote.AuthenticationService
 import com.ajws.aquajoss.data.remote.BearerInterceptor
+import com.ajws.aquajoss.data.repository.LoginRepository
+import com.ajws.aquajoss.data.viewModels.BaseViewModel
+import com.ajws.aquajoss.data.viewModels.LoginViewModel
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.soloader.SoLoader
@@ -23,6 +27,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -104,8 +109,15 @@ val modules = module {
         )
     }
 
-    // Repository
+    // Services
+    single { get<Retrofit>().create(AuthenticationService::class.java) as AuthenticationService}
 
+    // Repository
+    single { LoginRepository(get()) }
+
+    // ViewModel
+    viewModel { BaseViewModel() }
+    viewModel { LoginViewModel(get()) }
 
 }
 

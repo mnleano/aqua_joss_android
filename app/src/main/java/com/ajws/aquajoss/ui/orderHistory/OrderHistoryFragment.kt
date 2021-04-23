@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajws.aquajoss.R
 import com.ajws.aquajoss.data.enums.OrderStatus
-import com.ajws.aquajoss.data.view.OrderHistoryView
+import com.ajws.aquajoss.data.views.OrderHistoryView
 import com.ajws.aquajoss.databinding.FragmentGenericListBinding
-import com.ajws.aquajoss.databinding.FragmentOrderHistoryBinding
 import java.util.*
 
 class OrderHistoryFragment : Fragment() {
