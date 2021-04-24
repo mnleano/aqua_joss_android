@@ -29,15 +29,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/product_height_big"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_add_shopping"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/blue" />
+                android:src="@{data.drawable}"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/productName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8dp"
+                android:gravity="center"
                 android:text="@{data.name}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_medium"
@@ -60,6 +60,7 @@
                 tools:text="@tools:sample/full_names" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAdd"
                 style="@style/Button"
                 android:layout_marginStart="@dimen/zero_dp"
                 android:layout_marginTop="@dimen/_8dp"

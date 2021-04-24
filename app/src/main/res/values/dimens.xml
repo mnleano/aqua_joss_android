@@ -25,5 +25,5 @@
 
     <dimen name="button_height">56dp</dimen>
     <dimen name="product_height">72dp</dimen>
-    <dimen name="product_height_big">96dp</dimen>"
+    <dimen name="product_height_big">128dp</dimen>"
 </resources>

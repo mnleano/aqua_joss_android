@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ajws.aquajoss.data.views.ProductView
 import com.ajws.aquajoss.databinding.RowProductBinding
 
-class ProductAdapter(private val products: MutableList<ProductView>) :
+class ProductAdapter(
+    private val products: MutableList<ProductView>,
+    private val listener: ProductClickListener
+) :
     RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: RowProductBinding) : RecyclerView.ViewHolder(binding.root)
@@ -17,13 +20,14 @@ class ProductAdapter(private val products: MutableList<ProductView>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = products[position]
         holder.binding.data = product
-        holder.binding.root.setOnClickListener {
-
-        }
-//        holder.binding.ivAddToCart.setOnClickListener {
-//
-//        }
+        holder.binding.root.setOnClickListener { listener.onProductClick(product) }
+        holder.binding.btnAdd.setOnClickListener { listener.onProductAddToCart(product) }
     }
 
     override fun getItemCount(): Int = products.size
+
+    interface ProductClickListener {
+        fun onProductClick(product: ProductView)
+        fun onProductAddToCart(product: ProductView)
+    }
 }
