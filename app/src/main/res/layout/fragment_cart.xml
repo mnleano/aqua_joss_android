@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ajws.aquajoss.data.viewModels.ProductViewModel" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,39 +19,49 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:background="@color/white"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/tvTotal"
+            app:layout_constraintBottom_toTopOf="@+id/btnCheckOut"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/textView" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Sub-Total: "
-            android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <View
+            style="@style/Divider.Blue"
+            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check-Out"
-            android:textSize="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvTotal" />
+        <TextView
+            android:id="@+id/lblTotal"
+            style="@style/TextView.Label"
+            android:layout_marginStart="@dimen/_16dp"
+            android:text="@string/total_colon"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCheckOut"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnCheckOut" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout >
+        <TextView
+            android:id="@+id/total"
+            style="@style/TextView.Data.Special"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16dp"
+            android:padding="10dp"
+            app:amount="@{vm.total}"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCheckOut"
+            app:layout_constraintStart_toEndOf="@+id/lblTotal"
+            app:layout_constraintTop_toTopOf="@+id/btnCheckOut" />
+
+        <Button
+            android:id="@+id/btnCheckOut"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="@dimen/_16dp"
+            android:layout_marginBottom="@dimen/_8dp"
+            android:onClick="@{() -> vm.confirmOrderEvent()}"
+            android:text="@string/check_out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

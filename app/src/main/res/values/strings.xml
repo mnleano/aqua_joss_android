@@ -24,6 +24,13 @@
     <!-- Home -->
     <string name="add_to_cart">Add to cart</string>
 
+    <!-- Cart -->
+    <string name="stepper_minus">-</string>
+    <string name="stepper_plus">+</string>
+    <string name="remove">Remove</string>
+    <string name="total_colon">Total:</string>
+    <string name="check_out">Check Out</string>
+
     <!-- Order History -->
     <string name="bullet">\u2022</string>
 
@@ -39,6 +46,7 @@
     <string name="about_us">About Us</string>
 
     <!-- Dialog -->
+    <string name="ok">Ok</string>
     <string name="retry">Retry</string>
     <string name="cancel">Cancel</string>
     <string name="log_out_confirmation">Are you sure you want to log out?</string>

@@ -28,15 +28,63 @@ class OrderHistoryFragment : Fragment() {
         return binding.root
     }
 
-    private fun observeData(){
+    private fun observeData() {
 
         val orderHistories = mutableListOf<OrderHistoryView>()
-        orderHistories.add(OrderHistoryView("ORDER ID#1", 1000.0, OrderStatus.Canceled, Date(), Date()))
-        orderHistories.add(OrderHistoryView("ORDER ID#2", 1200.0, OrderStatus.Canceled, Date(), Date()))
-        orderHistories.add(OrderHistoryView("ORDER ID#3", 1030.0, OrderStatus.Canceled, Date(), Date()))
-        orderHistories.add(OrderHistoryView("ORDER ID#4", 1050.0, OrderStatus.Canceled, Date(), Date()))
-        orderHistories.add(OrderHistoryView("ORDER ID#5", 1010.0, OrderStatus.Canceled, Date(), Date()))
-        orderHistories.add(OrderHistoryView("ORDER ID#6", 10.0, OrderStatus.Canceled, Date(), Date()))
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315526,
+                1000.0,
+                OrderStatus.Canceled,
+                Date(1619259315526),
+                Date(1619250015526)
+            )
+        )
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315527,
+                1200.0,
+                OrderStatus.OnItsWay,
+                Date(1619259315526),
+                Date(1619250125526)
+            )
+        )
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315528,
+                1030.0,
+                OrderStatus.Processing,
+                Date(1619259315526),
+                Date(1619250235526)
+            )
+        )
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315529,
+                1050.0,
+                OrderStatus.Delivered,
+                Date(1619259315526),
+                Date(1619250445526)
+            )
+        )
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315530,
+                1010.0,
+                OrderStatus.OutForDelivery,
+                Date(1619259315526),
+                Date(1619250655526)
+            )
+        )
+        orderHistories.add(
+            OrderHistoryView(
+                1619259315531,
+                10.0,
+                OrderStatus.Processing,
+                Date(1619259315526),
+                Date(1619250865526)
+            )
+        )
 
         binding.recyclerView.layoutManager = LinearLayoutManager(activity)
         binding.recyclerView.adapter = OrderHistoryAdapter(orderHistories)

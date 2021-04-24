@@ -6,7 +6,7 @@ import io.objectbox.annotation.Id
 @Entity
 data class OrderProduct(
     @Id var id: Long = 0,
-    var orderId: String,
+    var orderId: Long,
     var productId: Long,
     var productName: String,
     var description: String,

@@ -5,13 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ajws.aquajoss.R
+import com.ajws.aquajoss.data.viewModels.ProductViewModel
 import com.ajws.aquajoss.data.views.CartProductView
 import com.ajws.aquajoss.databinding.FragmentCartBinding
+import com.ajws.aquajoss.ui.widget.DialogUtil
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CartFragment : Fragment() {
     private lateinit var binding: FragmentCartBinding
 
+    private val vm: ProductViewModel by viewModel()
     private val products = mutableListOf<CartProductView>()
+    private lateinit var adapter: CartProductAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,27 +25,41 @@ class CartFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentCartBinding.inflate(inflater, container, false)
+        vm.getCartProducts()
 
         initViews()
-        total()
+        observeData()
 
         return binding.root
     }
 
     private fun initViews() {
-
-//        products.add(CartProductView("PRODUCT ID 1", "Product Name 1", "Simple Description", 10.00, 9))
-//        products.add(CartProductView("PRODUCT ID 1", "Product Name 2", "Simple Description", 13.00, 9))
-//        products.add(CartProductView("PRODUCT ID 1", "Product Name 3", "Simple Description", 11.00, 9))
-//        products.add(CartProductView("PRODUCT ID 1", "Product Name 4", "Simple Description", 11.00, 9))
-//        products.add(CartProductView("PRODUCT ID 1", "Product Name 5", "Simple Description", 342.00, 9))
-//        products.add(CartProductView(0, "Product 1", "Simple Description", 10.00, 6))
-//        products.add(CartProductView(0, "Product 1", "Simple Description", 20.00, 2))
-        binding.recyclerView.adapter = CartProductAdapter(products)
+        adapter = CartProductAdapter(products)
+        binding.recyclerView.adapter = adapter
     }
 
-    private fun total(){
-        val totalAmount : Double = products.map {it.price * it.quantity}.sum()
-        binding.tvTotal.text = String.format("%.2f",totalAmount)
+    private fun observeData() {
+        binding.lifecycleOwner = this
+        binding.vm = vm
+
+        vm.cartProducts.observe(viewLifecycleOwner, {
+            products.clear()
+            products.addAll(it)
+            adapter.notifyDataSetChanged()
+        })
+
+        vm.checkOutClickEvent.observe(viewLifecycleOwner, {
+
+        })
+
+        vm.confirmOrderSuccessfulEvent.observe(viewLifecycleOwner, {
+            DialogUtil.show(requireActivity(),
+                "Order Successful",
+                getString(R.string.ok),
+                { dialog, _ ->
+                    vm.getCartProducts()
+                    dialog.dismiss()
+                })
+        })
     }
 }
