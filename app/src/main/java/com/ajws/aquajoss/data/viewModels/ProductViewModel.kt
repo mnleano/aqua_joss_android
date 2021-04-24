@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.ajws.aquajoss.data.SingleEvent
 import com.ajws.aquajoss.data.repository.ProductRepository
 import com.ajws.aquajoss.data.views.CartProductView
+import com.ajws.aquajoss.data.views.OrderHistoryView
 import com.ajws.aquajoss.data.views.ProductView
 
 class ProductViewModel(private val repository: ProductRepository) : BaseViewModel() {

@@ -121,6 +121,7 @@ val modules = module {
     viewModel { SignUpViewModel(get()) }
     viewModel { ProductViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
+    viewModel { OrderViewModel(get()) }
 
 }
 

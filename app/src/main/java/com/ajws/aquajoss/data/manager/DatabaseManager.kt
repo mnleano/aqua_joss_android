@@ -35,6 +35,8 @@ class DatabaseManager(
     fun putUser(user: User) = userBox.put(user)
     fun getUser(): User? = userBox.all.firstOrNull()
 
+    fun getOrderHistories(): MutableList<OrderHistory> = orderHistoryBox.all
+
     fun addOrderHistory(orderHistoryView: OrderHistoryView) {
         val orderHistory = getOrderHistory(orderHistoryView.orderId)
         orderHistoryBox.put(orderHistory ?: orderHistoryView.toEntity())
@@ -42,7 +44,6 @@ class DatabaseManager(
 
     fun addOrderProduct(orderProduct: OrderProduct) =
         orderProductBox.put(orderProduct)
-
 
     private fun getOrderHistory(orderId: Long): OrderHistory? {
         Lg.d("getOrderHistory: orderId=$orderId")

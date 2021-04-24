@@ -2,6 +2,7 @@ package com.ajws.aquajoss.data.repository
 
 import com.ajws.aquajoss.data.enums.OrderStatus
 import com.ajws.aquajoss.data.manager.DatabaseManager
+import com.ajws.aquajoss.data.maps.asView
 import com.ajws.aquajoss.data.maps.toCartView
 import com.ajws.aquajoss.data.maps.toOrderProductEntity
 import com.ajws.aquajoss.data.views.CartProductView
@@ -34,7 +35,8 @@ class ProductRepository(private val dbManager: DatabaseManager) {
                 cartProduct.toOrderProductEntity(orderHistory.orderId)
             )
         }
-
-
     }
+
+    fun getOrderHistories(): List<OrderHistoryView> =
+        dbManager.getOrderHistories().map { it.asView() }
 }
