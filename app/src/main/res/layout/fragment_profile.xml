@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.main.ProfileFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="vm"
+            type="com.ajws.aquajoss.data.viewModels.ProfileViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar_with_progress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{@string/navigation_profile}" />
+
+        <TextView
+            android:id="@+id/fullName"
+            style="@style/TextView.Data.Bold.Special"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_margin="@dimen/_16dp"
+            android:text="@{vm.userView.fullName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
+            tools:text="@string/full_name" />
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            style="@style/TextView.Data"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_marginTop="@dimen/_4dp"
+            android:text="@{vm.userView.phoneNumber}"
+            app:layout_constraintEnd_toEndOf="@+id/fullName"
+            app:layout_constraintStart_toStartOf="@+id/fullName"
+            app:layout_constraintTop_toBottomOf="@+id/fullName"
+            tools:text="@string/phone_number" />
+
+        <TextView
+            android:id="@+id/emailAddress"
+            style="@style/TextView.Data"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_marginTop="@dimen/_4dp"
+            android:text="@{vm.userView.emailAddress}"
+            app:layout_constraintEnd_toEndOf="@+id/fullName"
+            app:layout_constraintStart_toStartOf="@+id/fullName"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber"
+            tools:text="@string/email_address" />
+
+        <TextView
+            android:id="@+id/address"
+            style="@style/TextView.Data"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_marginTop="@dimen/_4dp"
+            android:text="@{vm.userView.address}"
+            app:layout_constraintEnd_toEndOf="@+id/fullName"
+            app:layout_constraintStart_toStartOf="@+id/fullName"
+            app:layout_constraintTop_toBottomOf="@+id/emailAddress"
+            tools:text="@string/address" />
+
+        <View
+            android:id="@+id/divider"
+            style="@style/Divider.Blue"
+            android:layout_margin="@dimen/_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address" />
+
+        <include
+            layout="@layout/row_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:onClickListener="@{() -> vm.aboutUsClickEvent()}"
+            app:title="@{@string/about_us}" />
+
+        <Button
+            android:id="@+id/LogOut"
+            style="@style/Button"
+            android:layout_marginBottom="@dimen/_64dp"
+            android:onClick="@{() -> vm.logOutClickEvent()}"
+            android:text="@string/log_out"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.266"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

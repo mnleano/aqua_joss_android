@@ -81,6 +81,7 @@
             android:id="@+id/btnSignUp"
             style="@style/TextView.Button"
             android:layout_marginStart="@dimen/_2dp"
+            android:onClick="@{() -> vm.signUpClickEvent()}"
             android:text="@string/sign_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lblNewUser"

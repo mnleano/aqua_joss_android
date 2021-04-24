@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background_window"
-        tools:context=".ui.signup.SignUpActivity">
+        tools:context=".ui.intro.SignUpActivity">
 
         <TextView
             android:id="@+id/lblTitle"
@@ -67,7 +67,7 @@
                 style="@style/TextInputEditText.Landing"
                 android:drawableStart="@drawable/ic_phone"
                 android:hint="@string/email_address"
-                android:text="@{vm.emailAddress}" />
+                android:text="@={vm.emailAddress}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +82,7 @@
                 style="@style/TextInputEditText.Landing"
                 android:drawableStart="@drawable/ic_address"
                 android:hint="@string/address"
-                android:text="@{vm.address}" />
+                android:text="@={vm.address}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -98,14 +98,13 @@
                 android:drawableStart="@drawable/ic_password"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:text="@{vm.password}" />
+                android:text="@={vm.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilConfirmPassword"
             style="@style/TextInputLayout"
             android:layout_marginTop="@dimen/_8dp"
-            android:text="@{vm.confirmPassword}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tilPassword">
@@ -114,7 +113,8 @@
                 style="@style/TextInputEditText.Landing"
                 android:drawableStart="@drawable/ic_password"
                 android:hint="@string/confirm_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:text="@={vm.confirmPassword}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

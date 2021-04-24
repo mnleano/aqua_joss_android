@@ -17,7 +17,6 @@ object DialogUtil {
 
     fun show(
         ctx: Context,
-        title: String? = null,
         message: String? = null,
         positiveButton: String? = null,
         positiveClickListener: DialogInterface.OnClickListener? = null,
@@ -26,7 +25,7 @@ object DialogUtil {
         cancellable: Boolean = true
     ) {
         val builder = getDialogBuilder(ctx)
-        builder.setTitle(title ?: ctx.getString(R.string.app_name))
+        builder.setTitle(ctx.getString(R.string.app_name))
         message?.let { builder.setMessage(message) }
 
         builder.setPositiveButton(

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+<!--    <data>-->
 
-        <variable
-            name="data"
-            type="com.ajws.aquajoss.data.views.CartProductView" />
-    </data>
+<!--        <variable-->
+<!--            name="data"-->
+<!--            type="com.ajws.aquajoss.data.views.CartProductView" />-->
+<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,7 +33,6 @@
             android:layout_width="154dp"
             android:layout_height="33dp"
             android:layout_marginStart="16dp"
-            android:text="@{data.productName}"
             android:textColor="@android:color/black"
             android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@+id/ivProduct"
@@ -44,7 +43,7 @@
             android:id="@+id/productPrice"
             android:layout_width="106dp"
             android:layout_height="30dp"
-            android:text="@{String.valueOf(data.price)}"
+
             android:textColor="@android:color/black"
             android:textSize="19sp"
             app:layout_constraintBottom_toBottomOf="@+id/ivProduct"
@@ -57,7 +56,6 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="@{String.valueOf(data.quantity)}"
             android:textColor="@android:color/black"
             android:textSize="19sp"
             app:layout_constraintBottom_toBottomOf="@+id/productPrice"

@@ -34,6 +34,12 @@
     <string name="order_status_on_its_way">On Its Way</string>
     <string name="order_status_delivered">Delivered</string>
 
+    <!-- Profile -->
+    <string name="log_out">Log Out</string>
+    <string name="about_us">About Us</string>
+
     <!-- Dialog -->
     <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="log_out_confirmation">Are you sure you want to log out?</string>
 </resources>

@@ -4,9 +4,11 @@ import com.ajws.aquajoss.data.entities.User
 import com.ajws.aquajoss.data.local.AccountPrefStore
 import com.ajws.aquajoss.data.manager.DatabaseManager
 import com.ajws.aquajoss.data.maps.asLoginRequestDto
+import com.ajws.aquajoss.data.maps.asView
 import com.ajws.aquajoss.data.remote.AuthenticationService
 import com.ajws.aquajoss.data.views.LoginView
 import com.ajws.aquajoss.data.views.SignUpView
+import com.ajws.aquajoss.data.views.UserView
 
 class AuthenticationRepository(
     private val service: AuthenticationService,
@@ -44,4 +46,9 @@ class AuthenticationRepository(
             )
         )
     }
+
+    fun getUser(): UserView? =
+        dbManager.getUser()?.asView()
+
+    fun logOut() = dbManager.clear()
 }

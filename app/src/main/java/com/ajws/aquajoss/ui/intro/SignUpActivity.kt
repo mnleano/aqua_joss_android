@@ -1,17 +1,13 @@
-package com.ajws.aquajoss.ui.signup
+package com.ajws.aquajoss.ui.intro
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.ajws.aquajoss.R
 import com.ajws.aquajoss.data.viewModels.SignUpViewModel
 import com.ajws.aquajoss.databinding.ActivitySignUpBinding
-import com.ajws.aquajoss.ui.BaseActivity
-import com.ajws.aquajoss.ui.main.MainActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SignUpActivity : BaseActivity() {
+class SignUpActivity : IntroBaseActivity() {
 
     private val vm: SignUpViewModel by viewModel()
 
@@ -24,8 +20,7 @@ class SignUpActivity : BaseActivity() {
         binding.lifecycleOwner = this
         binding.vm = vm
 
-        vm.registerSuccessfulEvent.observe(this, {
-            startClearTaskActivity(Intent(this, MainActivity::class.java))
-        })
+        vm.registerSuccessfulEvent.observe(this, { startMainActivity() })
+        vm.loginClickEvent.observe(this, { startLoginActivity()})
     }
 }

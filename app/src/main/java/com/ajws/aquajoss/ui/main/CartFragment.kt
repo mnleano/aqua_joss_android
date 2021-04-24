@@ -28,11 +28,11 @@ class CartFragment : Fragment() {
 
     private fun initViews() {
 
-        products.add(CartProductView("PRODUCT ID 1", "Product Name 1", "Simple Description", 10.00, 9))
-        products.add(CartProductView("PRODUCT ID 1", "Product Name 2", "Simple Description", 13.00, 9))
-        products.add(CartProductView("PRODUCT ID 1", "Product Name 3", "Simple Description", 11.00, 9))
-        products.add(CartProductView("PRODUCT ID 1", "Product Name 4", "Simple Description", 11.00, 9))
-        products.add(CartProductView("PRODUCT ID 1", "Product Name 5", "Simple Description", 342.00, 9))
+//        products.add(CartProductView("PRODUCT ID 1", "Product Name 1", "Simple Description", 10.00, 9))
+//        products.add(CartProductView("PRODUCT ID 1", "Product Name 2", "Simple Description", 13.00, 9))
+//        products.add(CartProductView("PRODUCT ID 1", "Product Name 3", "Simple Description", 11.00, 9))
+//        products.add(CartProductView("PRODUCT ID 1", "Product Name 4", "Simple Description", 11.00, 9))
+//        products.add(CartProductView("PRODUCT ID 1", "Product Name 5", "Simple Description", 342.00, 9))
 //        products.add(CartProductView(0, "Product 1", "Simple Description", 10.00, 6))
 //        products.add(CartProductView(0, "Product 1", "Simple Description", 20.00, 2))
         binding.recyclerView.adapter = CartProductAdapter(products)

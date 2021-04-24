@@ -16,10 +16,10 @@
             android:name=".ui.intro.IntroActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.signup.SignUpActivity"
+            android:name=".ui.intro.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.intro.LoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.SplashScreenActivity"

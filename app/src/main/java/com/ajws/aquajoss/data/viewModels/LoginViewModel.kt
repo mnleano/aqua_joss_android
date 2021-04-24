@@ -15,11 +15,11 @@ class LoginViewModel(private val repository: AuthenticationRepository) : BaseVie
     val username = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
-//    private val mUserDetails = MutableLiveData<UserDetailsResponseDto>()
-//    val userDetails: LiveData<UserDetailsResponseDto> = mUserDetails
-
     private val mLoginSuccessfulEvent = MutableLiveData<SingleEvent<Unit>>()
     val loginSuccessfulEvent: LiveData<SingleEvent<Unit>> = mLoginSuccessfulEvent
+
+    private val mSignUpClickEvent = MutableLiveData<SingleEvent<Unit>>()
+    val signUpClickEvent: LiveData<SingleEvent<Unit>> = mSignUpClickEvent
 
     fun login() {
         val username = username.value
@@ -58,4 +58,6 @@ class LoginViewModel(private val repository: AuthenticationRepository) : BaseVie
         username.postValue("")
         password.postValue("")
     }
+
+    fun signUpClickEvent() = mSignUpClickEvent.postValue(SingleEvent(Unit))
 }

@@ -15,4 +15,13 @@ class DatabaseManager(
 
     fun putUser(user: User) = userBox.put(user)
 
+    fun getUser(): User? = userBox.query().build().findFirst()
+
+    fun clear(){
+        cartProductBox.removeAll()
+        orderHistoryBox.removeAll()
+        orderProductBox.removeAll()
+        userBox.removeAll()
+    }
+
 }

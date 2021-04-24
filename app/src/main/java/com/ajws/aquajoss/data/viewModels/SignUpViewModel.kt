@@ -19,7 +19,6 @@ class SignUpViewModel(private val repository: AuthenticationRepository) : BaseVi
     private val mLoginClickEvent = MutableLiveData<SingleEvent<Unit>>()
     val loginClickEvent: LiveData<SingleEvent<Unit>> = mLoginClickEvent
 
-
     private val mRegisterSuccessfulEvent = MutableLiveData<SingleEvent<Unit>>()
     val registerSuccessfulEvent: LiveData<SingleEvent<Unit>> = mRegisterSuccessfulEvent
 
