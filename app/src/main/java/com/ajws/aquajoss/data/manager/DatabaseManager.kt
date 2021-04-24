@@ -1,6 +1,7 @@
 package com.ajws.aquajoss.data.manager
 
 import com.ajws.aquajoss.data.entities.*
+import com.ajws.aquajoss.data.maps.toCartEntity
 import com.ajws.aquajoss.data.views.ProductView
 import com.ajws.aquajoss.util.Lg
 import io.objectbox.Box
@@ -15,8 +16,9 @@ class DatabaseManager(
     fun getProducts(): MutableList<CartProduct> = cartProductBox.all
 
     fun addProduct(productView: ProductView) {
-        Lg.d("addProduct: product=$productView")
-        val product = getProduct()
+        val product = getProduct(productView.productId)?.apply { this.quantity += 1 }
+        Lg.d("addProduct: product=$product, productView=$productView")
+        cartProductBox.put(product ?: productView.toCartEntity())
     }
 
     private fun getProduct(productId: Long): CartProduct? {

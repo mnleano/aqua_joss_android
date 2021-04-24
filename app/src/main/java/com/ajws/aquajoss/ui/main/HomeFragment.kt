@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.ajws.aquajoss.R
+import com.ajws.aquajoss.data.viewModels.ProductViewModel
 import com.ajws.aquajoss.data.views.ProductView
 import com.ajws.aquajoss.databinding.FragmentHomeBinding
+import com.ajws.aquajoss.util.Lg
+import org.koin.androidx.viewmodel.compat.ScopeCompat.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+
+    private val vm: ProductViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +37,7 @@ class HomeFragment : Fragment() {
         val products = mutableListOf<ProductView>()
         products.add(
             ProductView(
-                0,
+                1619251670000,
                 "5 Gallon Round Water Container",
                 "Aqua Joss Purified Drinking Water is a quality yet affordable brand for daily consumption of clean, and safe bottled water",
                 25.00,
@@ -41,7 +47,7 @@ class HomeFragment : Fragment() {
         )
         products.add(
             ProductView(
-                0,
+                1619251671000,
                 "5 Gallon Blue Slim Container with Handle",
                 "Aqua Joss Purified Drinking Water is a quality yet affordable brand for daily consumption of clean, and safe bottled water",
                 25.00,
@@ -51,7 +57,7 @@ class HomeFragment : Fragment() {
         )
         products.add(
             ProductView(
-                0,
+                1619251672000,
                 "1000ml Distilled Water Bottle",
                 "",
                 20.00,
@@ -61,7 +67,7 @@ class HomeFragment : Fragment() {
         )
         products.add(
             ProductView(
-                0,
+                1619251673000,
                 "500ml Distilled Water Bottle",
                 "",
                 15.00,
@@ -71,7 +77,7 @@ class HomeFragment : Fragment() {
         )
         products.add(
             ProductView(
-                0,
+                1619251674000,
                 "3500ml Distilled Water Bottle",
                 "",
                 10.00,
@@ -87,7 +93,8 @@ class HomeFragment : Fragment() {
                 }
 
                 override fun onProductAddToCart(product: ProductView) {
-
+                    vm.addProduct(product)
+                    Lg.d("onProductAddToCart: ${product.productName} added")
                 }
             })
     }

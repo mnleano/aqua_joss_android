@@ -9,10 +9,8 @@ import com.ajws.aquajoss.data.manager.DatabaseManager
 import com.ajws.aquajoss.data.remote.AuthenticationService
 import com.ajws.aquajoss.data.remote.BearerInterceptor
 import com.ajws.aquajoss.data.repository.AuthenticationRepository
-import com.ajws.aquajoss.data.viewModels.BaseViewModel
-import com.ajws.aquajoss.data.viewModels.LoginViewModel
-import com.ajws.aquajoss.data.viewModels.ProfileViewModel
-import com.ajws.aquajoss.data.viewModels.SignUpViewModel
+import com.ajws.aquajoss.data.repository.ProductRepository
+import com.ajws.aquajoss.data.viewModels.*
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.soloader.SoLoader
@@ -115,11 +113,13 @@ val modules = module {
 
     // Repository
     single { AuthenticationRepository(get(), get(), get()) }
+    single { ProductRepository(get()) }
 
     // ViewModel
     viewModel { BaseViewModel() }
     viewModel { LoginViewModel(get()) }
     viewModel { SignUpViewModel(get()) }
+    viewModel { ProductViewModel(get()) }
     viewModel { ProfileViewModel(get()) }
 
 }

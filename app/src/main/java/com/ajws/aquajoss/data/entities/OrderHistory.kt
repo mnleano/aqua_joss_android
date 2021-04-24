@@ -7,7 +7,7 @@ import java.util.*
 @Entity
 data class OrderHistory(
     @Id var id: Long = 0,
-    var orderId: String,
+    var orderId: Long,
     var orderAmount: Double,
     var orderStatus: Int,
     var orderDate: Date,
