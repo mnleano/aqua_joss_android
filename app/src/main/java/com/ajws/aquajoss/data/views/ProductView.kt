@@ -3,8 +3,8 @@ package com.ajws.aquajoss.data.views
 import android.graphics.drawable.Drawable
 
 data class ProductView(
-    val id: Int,
-    val name: String,
+    val productId: Long,
+    val productName: String,
     val description: String,
     val price: Double,
     val quantity: Int,

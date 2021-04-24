@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8dp"
                 android:gravity="center"
-                android:text="@{data.name}"
+                android:text="@{data.productName}"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/text_size_medium"
                 app:layout_constraintEnd_toEndOf="parent"
